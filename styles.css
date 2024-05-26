@@ -1,0 +1,566 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #0a0a0a;
+    color: #fff;
+}
+
+header {
+    background-color: transparent;
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    position: relative;
+    z-index: 1000;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 1em;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #00ffff; /* 赛博朋克霓虹色 */
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    display: block;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff00ff; /* 另一个霓虹色 */
+    border-bottom: 2px solid #ff00ff; /* 悬停时显示下划线 */
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid #333;
+    z-index: 1000;
+}
+
+.dropdown li {
+    width: 200px;
+}
+
+.dropdown li a {
+    padding: 0.5em 1em;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+}
+
+.dropdown li a:hover {
+    background-color: #333;
+}
+
+.menu a {
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.hero {
+    background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2em;
+    border-radius: 10px;
+    border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin: 0.5em 0;
+}
+
+.hero p {
+    font-size: 1.5em;
+}
+
+.hero button {
+    margin-top: 1em;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+    background-color: transparent;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.hero button:hover {
+    background-color: #00ffff; /* 赛博朋克霓虹色 */
+    color: #000;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 2em;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00ffff; /* 赛博朋克霓虹色 */
+    text-align: center;
+    padding: 1em 0;
+    border-top: 1px solid #333;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+.artist-intro {
+    text-align: center;
+    position: relative;
+    padding: 3em 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background: rgba(0, 0, 0, 0.9);
+    overflow: hidden; /* 确保动画内容不会溢出 */
+    background-image: url('../assets/images/hero-bg.jpg'); /* 使用相同的背景图片 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.artist-intro h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+    animation: fadeIn 2s ease-in-out;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.artist-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 2s ease-in-out forwards;
+    animation-delay: 1s; /* 延迟动画，使其与标题动画错开 */
+    border: 2px solid rgba(128, 128, 128, 0.5); /* 淡灰色透明度50%的边框 */
+    padding: 1em;
+    border-top: none; /* 从标题下方开始 */
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.artist-image img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+.artist-info {
+    max-width: 600px;
+    text-align: left;
+}
+
+.artist-info h3 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.artist-info p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.artist-info button {
+    margin-top: 1em;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+    background-color: transparent;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.artist-info button:hover {
+    background-color: #00ffff; /* 赛博朋克霓虹色 */
+    color: #000;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .hero-content, .artist-content {
+        padding: 1em;
+    }
+
+    .artist-content {
+        flex-direction: column;
+    }
+
+    .artist-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .artist-info {
+        text-align: center;
+    }
+}
+
+.playlists-section {
+    text-align: center;
+    background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
+    padding: 3em 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.playlists-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+}
+
+.playlists-header h2 {
+    margin: 0;
+    margin-right: 2em; /* 确保有间距 */
+}
+
+.playlists-header .playlist-item {
+    flex: 1;
+}
+
+.playlists-container {
+    display: flex;
+    gap: 2em;
+}
+
+.playlists-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.current-track-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none; /* 移除背景 */
+    padding: 2em;
+    border-radius: 10px;
+    border: none; /* 移除边框 */
+    box-shadow: none; /* 移除阴影 */
+}
+
+.current-track-cover img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    border: none; /* 移除边框 */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* 添加发光效果 */
+    animation: zoomInOut 3s infinite alternate; /* 添加缩放效果 */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 255, 255, 1);
+    }
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.current-track-details {
+    margin-top: 1em;
+}
+
+.current-track-details h3 {
+    font-size: 2em;
+    color: #ff00ff; /* 另一个霓虹色 */
+}
+
+.playlist-item {
+    background: linear-gradient(135deg, #333, #222);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 200px;
+    border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.playlist-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.playlist-item h3 {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    color: #ff00ff; /* 另一个霓虹色 */
+    cursor: text;
+    user-select: text;
+}
+
+.play-playlist {
+    background: none;
+    border: none;
+    color: #00ffff;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-top: 0.5em;
+    transition: transform 0.2s ease;
+}
+
+.play-playlist:hover {
+    transform: scale(1.2);
+}
+
+.playlist-tracks {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0 0 0;
+}
+
+.playlist-track {
+    background-color: #333;
+    padding: 0.5em;
+    margin: 0.2em 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.playlist-track:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.drag-handle {
+    cursor: grab;
+    margin-right: 0.5em;
+    font-size: 1.5em;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+}
+
+.playlist-tracks li button {
+    background: none;
+    border: none;
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.playlist-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.playlist-controls button {
+    background: none;
+    border: none;
+    color: #00ffff;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.playlist-controls button.active,
+.playlist-controls button:hover {
+    transform: scale(1.2);
+    color: #ff00ff;
+}
+
+#playlist-audio {
+    display: block;
+    width: 100%;
+    margin-top: 2em;
+}
+
+/* Music Library Specific Styles */
+.music-library-hero {
+    background: url('../assets/images/library-bg.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.library-beats {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.beat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+}
+
+.beat {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.beat:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.beat h3 {
+    margin-top: 0.5em;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+}
+
+.beat-cover {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.audio-player {
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.audio-player:hover {
+    background-color: #555;
+    transform: scale(1.02);
+}
+
+.audio-player::-webkit-media-controls-panel {
+    background-color: #333;
+}
+
+.audio-player::-webkit-media-controls-play-button,
+.audio-player::-webkit-media-controls-current-time-display,
+.audio-player::-webkit-media-controls-time-remaining-display,
+.audio-player::-webkit-media-controls-timeline,
+.audio-player::-webkit-media-controls-volume-slider,
+.audio-player::-webkit-media-controls-mute-button,
+.audio-player::-webkit-media-controls-fullscreen-button {
+    filter: invert(1);
+}
+
+.add-to-playlist {
+    margin-top: 1em;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+    background-color: transparent;
+    color: #00ffff; /* 赛博朋克霓虹色 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-to-playlist:hover {
+    background-color: #00ffff; /* 赛博朋克霓虹色 */
+    color: #000;
+}
+
+
+

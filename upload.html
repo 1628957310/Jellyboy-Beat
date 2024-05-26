@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyboy Beat - Upload Your Music</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* 保持现有样式定义 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            color: #fff;
+        }
+
+        header {
+            background-color: transparent;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+            margin-right: 1em;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+            color: #00ffff; /* 赛博朋克霓虹色 */
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #00ffff; /* 赛博朋克霓虹色 */
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 0.5em 1em;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff00ff; /* 另一个霓虹色 */
+        }
+
+        .upload-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2em;
+            border-radius: 10px;
+            margin: 2em auto;
+            border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .upload-section h2 {
+            font-size: 2.5em;
+            color: #00ffff; /* 赛博朋克霓虹色 */
+            text-align: center;
+            margin-bottom: 1em;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        .upload-section input[type="file"] {
+            display: none;
+        }
+
+        .upload-section label {
+            width: 90%; /* 调整宽度 */
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 1em;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-left: auto; /* 居中对齐 */
+            margin-right: auto; /* 居中对齐 */
+            display: block; /* 居中对齐 */
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .upload-section label:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+
+        .upload-section input[type="text"] {
+            width: 90%; /* 调整宽度 */
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 1em;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-left: auto; /* 居中对齐 */
+            margin-right: auto; /* 居中对齐 */
+            display: block; /* 居中对齐 */
+        }
+
+        .upload-section input[type="text"]:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+
+        .upload-section button {
+            width: 90%; /* 调整宽度 */
+            padding: 1em;
+            font-size: 1.5em;
+            border: 1px solid #00ffff; /* 赛博朋克霓虹色 */
+            background-color: transparent;
+            color: #00ffff; /* 赛博朋克霓虹色 */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            margin-left: auto; /* 居中对齐 */
+            margin-right: auto; /* 居中对齐 */
+            display: block; /* 居中对齐 */
+            position: relative;
+        }
+
+        .upload-section button:hover {
+            background-color: #00ffff; /* 赛博朋克霓虹色 */
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+
+        .upload-section button:active {
+            transform: scale(0.98);
+        }
+
+        .progress-bar {
+            display: none;
+            width: 90%;
+            margin: 1em auto;
+            height: 1em;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .progress-bar div {
+            height: 100%;
+            background: #00ffff;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #00ffff; /* 赛博朋克霓虹色 */
+            text-align: center;
+            padding: 1em 0;
+            border-top: 1px solid #333;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5);
+            }
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const title = document.querySelector('input[placeholder="Title"]').value;
+            const album = document.querySelector('input[placeholder="Album"]').value;
+            const musicFile = document.getElementById('music-upload').files[0];
+            const coverFile = document.getElementById('cover-upload').files[0];
+            
+            if (!title || !album || !musicFile || !coverFile) {
+                alert('Please fill all fields and select files to upload.');
+                return false;
+            }
+            return { title, album, musicFile, coverFile };
+        }
+
+        function uploadFile() {
+            const formData = validateForm();
+            if (!formData) return;
+
+            const { title, album, musicFile, coverFile } = formData;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const musicData = e.target.result;
+                const coverReader = new FileReader();
+                coverReader.onload = function(e) {
+                    const coverData = e.target.result;
+                    const newBeat = {
+                        title,
+                        album,
+                        musicSrc: musicData,
+                        coverSrc: coverData
+                    };
+
+                    let library = JSON.parse(localStorage.getItem('musicLibrary')) || [];
+                    library.push(newBeat);
+                    localStorage.setItem('musicLibrary', JSON.stringify(library));
+
+                    alert('Upload Complete!');
+                    window.location.href = 'library.html';
+                };
+                coverReader.readAsDataURL(coverFile);
+            };
+            reader.readAsDataURL(musicFile);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Jellyboy Beat Logo">
+            <h1>Jellyboy Beat</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html">Music Library</a></li>
+                <li><a href="playlists.html">Playlists</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="upload-section">
+            <h2>Upload Your Music</h2>
+            <label for="music-upload">选择音乐文件</label>
+            <input type="file" id="music-upload" accept="audio/*">
+            <input type="text" placeholder="Title">
+            <input type="text" placeholder="Album">
+            <label for="cover-upload">选择专辑封面</label>
+            <input type="file" id="cover-upload" accept="image/*">
+            <button onclick="uploadFile()">Upload</button>
+            <div class="progress-bar"><div></div></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jellyboy Beat. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+

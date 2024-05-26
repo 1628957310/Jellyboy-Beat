@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyboy Beat - Contact</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            color: #fff;
+        }
+
+        header {
+            background-color: transparent;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+            margin-right: 1em;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 0.5em 1em;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff00ff;
+        }
+
+        .contact-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2em;
+            border-radius: 10px;
+            margin: 2em auto;
+            border: 1px solid #00ffff;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 1em;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .contact-section label {
+            width: 90%;
+            padding: 0.5em;
+            margin-bottom: 0.5em;
+            border-radius: 5px;
+            color: #00ffff;
+            background: none;
+            font-size: 1.2em;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            text-align: left;
+        }
+
+        .contact-section input, .contact-section textarea {
+            width: 90%;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            border: 1px solid #00ffff;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 1em;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .contact-section input:focus, .contact-section textarea:focus {
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+
+        .contact-section button {
+            width: 90%;
+            padding: 1em;
+            font-size: 1.5em;
+            border: 1px solid #00ffff;
+            background-color: transparent;
+            color: #00ffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            position: relative;
+        }
+
+        .contact-section button:hover {
+            background-color: #00ffff;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #00ffff;
+            text-align: center;
+            padding: 1em 0;
+            border-top: 1px solid #333;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Jellyboy Beat Logo">
+            <h1>Jellyboy Beat</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html">Music Library</a></li>
+                <li><a href="playlists.html">Playlists</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="contact.html">Contact</a></li> <!-- Updated -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <form id="contact-form" method="post" action="send_mail.php">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jellyboy Beat. All rights reserved.</p>
+    </footer>
+</body>
+</html>

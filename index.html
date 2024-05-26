@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyboy Beat - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('nav ul li a');
+            for (const link of links) {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.split('#')[1];
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Jellyboy Beat Logo">
+            <h1>Jellyboy Beat</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html">Music Library</a></li>
+                <li><a href="playlists.html">Playlists</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Jellyboy Beat</h2>
+                <p>Nothing can stop me I'm all the way up</p>
+                <button onclick="location.href='playlists.html'">您创建的歌单</button>
+            </div>
+        </section>
+        <section class="artist-intro">
+            <h2>Meet the Artist: Jellyboy</h2>
+            <div class="artist-content">
+                <div class="artist-image">
+                    <img src="assets/images/artist.jpg" alt="Jellyboy">
+                </div>
+                <div class="artist-info">
+                    <h3>Jellyboy</h3>
+                    <p>Jellyboy is a renowned artist known for his unique trap beats and innovative music style. With multiple hits and a growing fanbase, Jellyboy continues to push the boundaries of the trap genre. Explore his latest tracks and get a glimpse of his musical journey.</p>
+                    <button onclick="location.href='library.html'">Discover Music</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jellyboy Beat. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+

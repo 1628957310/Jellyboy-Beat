@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyboy Beat - Music Library</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const libraryContainer = document.querySelector('.beat-grid');
+            const library = JSON.parse(localStorage.getItem('musicLibrary')) || [];
+
+            library.forEach(beat => {
+                const beatElement = document.createElement('div');
+                beatElement.classList.add('beat');
+                beatElement.innerHTML = `
+                    <img src="${beat.coverSrc}" alt="${beat.title} Cover" class="beat-cover">
+                    <h3>${beat.title}</h3>
+                    <audio controls class="audio-player">
+                        <source src="${beat.musicSrc}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="${beat.title}" data-src="${beat.musicSrc}" data-cover="${beat.coverSrc}">Add to Playlist</button>
+                `;
+                libraryContainer.appendChild(beatElement);
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Jellyboy Beat Logo">
+            <h1>Jellyboy Beat</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html">Music Library</a></li>
+                <li><a href="playlists.html">Playlists</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="music-library-hero">
+            <h2>Music Library</h2>
+            <p>Explore the best trap beats from Jellyboy Beat</p>
+        </section>
+        <section class="library-beats">
+            <h2>Featured Beats</h2>
+            <div class="beat-grid">
+                <!-- Existing Beats -->
+                <div class="beat" data-cover="assets/images/beat1.jpg" data-beat="Jelly Booming" data-src="assets/beats/beat1.mp3">
+                    <img src="assets/images/beat1.jpg" alt="Jelly Booming Cover" class="beat-cover">
+                    <h3>Jelly Booming</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="Jelly Booming" data-src="assets/beats/beat1.mp3" data-cover="assets/images/beat1.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat2.jpg" data-beat="Ocean Boy" data-src="assets/beats/beat2.mp3">
+                    <img src="assets/images/beat2.jpg" alt="Ocean Boy Cover" class="beat-cover">
+                    <h3>Ocean Boy</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat2.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="Ocean Boy" data-src="assets/beats/beat2.mp3" data-cover="assets/images/beat2.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat3.jpg" data-beat="分别在横滨" data-src="assets/beats/beat3.mp3">
+                    <img src="assets/images/beat3.jpg" alt="分别在横滨 Cover" class="beat-cover">
+                    <h3>分别在横滨</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat3.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="分别在横滨" data-src="assets/beats/beat3.mp3" data-cover="assets/images/beat3.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat4.jpg" data-beat="宫本魂" data-src="assets/beats/beat4.mp3">
+                    <img src="assets/images/beat4.jpg" alt="宫本魂 Cover" class="beat-cover">
+                    <h3>宫本魂</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat4.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="宫本魂" data-src="assets/beats/beat4.mp3" data-cover="assets/images/beat4.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat5.jpg" data-beat="琵琶女侠" data-src="assets/beats/beat5.mp3">
+                    <img src="assets/images/beat5.jpg" alt="琵琶女侠 Cover" class="beat-cover">
+                    <h3>琵琶女侠</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat5.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="琵琶女侠" data-src="assets/beats/beat5.mp3" data-cover="assets/images/beat5.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat6.jpg" data-beat="Hood Artist" data-src="assets/beats/beat6.mp3">
+                    <img src="assets/images/beat6.jpg" alt="Hood Artist Cover" class="beat-cover">
+                    <h3>Hood Artist</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat6.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="Hood Artist" data-src="assets/beats/beat6.mp3" data-cover="assets/images/beat6.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat7.jpg" data-beat="午后拿铁" data-src="assets/beats/beat7.mp3">
+                    <img src="assets/images/beat7.jpg" alt="午后拿铁 Cover" class="beat-cover">
+                    <h3>午后拿铁</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat7.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="午后拿铁" data-src="assets/beats/beat7.mp3" data-cover="assets/images/beat7.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat8.jpg" data-beat="亚马逊丛林" data-src="assets/beats/beat8.mp3">
+                    <img src="assets/images/beat8.jpg" alt="亚马逊丛林 Cover" class="beat-cover">
+                    <h3>亚马逊丛林</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat8.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="亚马逊丛林" data-src="assets/beats/beat8.mp3" data-cover="assets/images/beat8.jpg">Add to Playlist</button>
+                </div>
+                <div class="beat" data-cover="assets/images/beat9.jpg" data-beat="拉着你的手走遍四季" data-src="assets/beats/beat9.mp3">
+                    <img src="assets/images/beat9.jpg" alt="拉着你的手走遍四季 Cover" class="beat-cover">
+                    <h3>拉着你的手走遍四季</h3>
+                    <audio controls class="audio-player">
+                        <source src="assets/beats/beat9.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="add-to-playlist" data-beat="拉着你的手走遍四季" data-src="assets/beats/beat9.mp3" data-cover="assets/images/beat9.jpg">Add to Playlist</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jellyboy Beat. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
